@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: v2.0.0
+version: 2.0.0
+name: goapp-debug
+description: Go App Debug
+type: application
+maintainers:
+  - name: annd2
+    email: support@vngcloud.vn
