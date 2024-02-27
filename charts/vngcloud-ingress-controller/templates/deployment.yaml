@@ -35,7 +35,7 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Values.ingressControllerName }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - /bin/vngcloud-ingress-controller
