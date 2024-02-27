@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  goapp-debug:
+  - apiVersion: v2
+    appVersion: v2.0.0
+    created: "2024-02-27T20:28:14.339067508Z"
+    description: Go App Debug
+    digest: 5f15c679098d969c542c9ca2321e99b3bb44ae88f0afff253ab6021c4cab3ee9
+    maintainers:
+    - email: support@vngcloud.vn
+      name: annd2
+    name: goapp-debug
+    type: application
+    urls:
+    - https://github.com/anngdinh/helm-charts/releases/download/goapp-debug-2.0.2/goapp-debug-2.0.2.tgz
+    version: 2.0.2
+generated: "2024-02-27T20:28:14.339099428Z"
