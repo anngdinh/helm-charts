@@ -1,5 +1,7 @@
 # Anngdinh Personal Helm Charts
 
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/anngdinh-helm-charts)](https://artifacthub.io/packages/search?repo=anngdinh-helm-charts)
+
 ## Usage
 
 [Helm](https://helm.sh) must be installed to use the charts.
