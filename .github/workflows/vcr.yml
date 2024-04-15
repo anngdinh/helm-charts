@@ -35,8 +35,5 @@ jobs:
         run: |
           rm -rf ${{ github.workspace }}/charts/goapp-debug/*.tgz
           helm package ${{ github.workspace }}/charts/goapp-debug/
-          helm push ${{ github.workspace }}/charts/goapp-debug/*.tgz ghcr.io/${{ github.repository_owner }}/vks/annd2:${{ github.sha }}
-      - name: publish chart to acr
-        run: |
-          helm chart push ghcr.io/${{ github.repository_owner }}/vks/annd2:${{ github.sha }}
-      
+          helm push ${{ github.workspace }}/charts/goapp-debug/*.tgz oci://ghcr.io/${{ github.repository_owner }}/vks/annd2:${{ github.sha }}
+
