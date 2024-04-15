@@ -37,5 +37,5 @@ jobs:
           find . -name "*.tgz" -type f -delete
           echo ${{ github.workspace }}
           cd ${{ github.workspace }} && helm package ${{ github.workspace }}/charts/*
-          cd ${{ github.workspace }} && helm push *.tgz oci://ghcr.io/${{ github.repository_owner }}/vks
-          cd ${{ github.workspace }} && helm push *.tgz oci://vcr.vngcloud.vn/60108-annd2-ingress/helm
+          cd ${{ github.workspace }} && ./push_tgz.sh oci://ghcr.io/${{ github.repository_owner }}/vks
+          cd ${{ github.workspace }} && ./push_tgz.sh oci://vcr.vngcloud.vn/60108-annd2-ingress/helm
