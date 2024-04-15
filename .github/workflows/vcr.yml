@@ -33,7 +33,9 @@ jobs:
 
       - name: save helm chart to local registry
         run: |
-          helm chart save ${{ github.workspace }}/charts/goapp-debug/ ghcr.io/${{ github.repository_owner }}/vks/annd2:${{ github.sha }}
+          rm -rf ${{ github.workspace }}/charts/goapp-debug/*.tgz
+          helm package ${{ github.workspace }}/charts/goapp-debug/
+          helm chart save ${{ github.workspace }}/charts/goapp-debug/*.tgz ghcr.io/${{ github.repository_owner }}/vks/annd2:${{ github.sha }}
       - name: publish chart to acr
         run: |
           helm chart push ghcr.io/${{ github.repository_owner }}/vks/annd2:${{ github.sha }}
