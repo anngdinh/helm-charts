@@ -29,7 +29,7 @@ jobs:
 
       - name: login to acr using helm
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io/${{ github.repository_owner }}/vks/annd2 --username ${{ github.repository_owner }} --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io/${{ github.repository_owner }} --username ${{ github.repository_owner }} --password-stdin
           echo ${{ secrets.VCR_PASSWORD }} | helm registry login vcr.vngcloud.vn --username ${{ secrets.VCR_USER }} --password-stdin
 
       - name: save helm chart to local registry
@@ -37,5 +37,5 @@ jobs:
           find . -name "*.tgz" -type f -delete
           echo ${{ github.workspace }}
           cd ${{ github.workspace }} && helm package ${{ github.workspace }}/charts/*
-          cd ${{ github.workspace }} && ./push_tgz.sh oci://ghcr.io/${{ github.repository_owner }}/vks
-          cd ${{ github.workspace }} && ./push_tgz.sh oci://vcr.vngcloud.vn/60108-annd2-ingress/helm
+          cd ${{ github.workspace }} && ./push_tgz.sh oci://ghcr.io/${{ github.repository_owner }}/helm-charts
+          cd ${{ github.workspace }} && ./push_tgz.sh oci://${{ secrets.VCR_REPO }}/helm-charts
