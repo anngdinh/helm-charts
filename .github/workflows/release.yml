@@ -9,8 +9,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.run_tests.outputs.changed_charts }}
-      output2: ${{ steps.run_tests.outputs.chart_version }}
+      changed_charts: ${{ steps.run_tests.outputs.changed_charts }}
+      chart_version: ${{ steps.run_tests.outputs.chart_version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -58,5 +58,5 @@ jobs:
           CHANGED_CHARTS: ${{needs.job1.outputs.changed_charts}}
           CHART_VERSION: ${{needs.job1.outputs.chart_version}}
         run: |
-          echo $CHANGED_CHARTS
-          echo $CHART_VERSION
+          echo "$CHANGED_CHARTS"
+          echo "$CHART_VERSION"
