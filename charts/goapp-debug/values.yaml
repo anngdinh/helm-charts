@@ -3,3 +3,5 @@ image:
   repository: vcr.vngcloud.vn/60108-annd2-ingress/goapp-debug
   tag: "v2.0.0"
   pullPolicy: Always
+
+key: value
