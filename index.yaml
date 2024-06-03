@@ -3,6 +3,19 @@ entries:
   goapp-debug:
   - apiVersion: v2
     appVersion: v2.0.0
+    created: "2024-06-03T09:40:18.519027527Z"
+    description: Go App Debug
+    digest: 3df410d423aa969127f98397bf37e5a3023fcdf75ecab8d4cfec423b386bafbb
+    maintainers:
+    - email: support@vngcloud.vn
+      name: annd2
+    name: goapp-debug
+    type: application
+    urls:
+    - https://github.com/anngdinh/helm-charts/releases/download/goapp-debug-2.0.12/goapp-debug-2.0.12.tgz
+    version: 2.0.12
+  - apiVersion: v2
+    appVersion: v2.0.0
     created: "2024-06-03T09:35:43.338315471Z"
     description: Go App Debug
     digest: d943667e16f14a24f7a617cc54b4f977a47c49bccba141e60efb8572972605c1
@@ -121,6 +134,20 @@ entries:
   vngcloud-controller-manager:
   - apiVersion: v2
     appVersion: v0.1.0
+    created: "2024-06-03T09:40:18.666333956Z"
+    description: VngCloud Controller Manager plugin for Kubernetes
+    digest: 1ad274ab8cd9f3ebd29e0b79a039bfa189654e0f04b128674614f0cbb27fb794
+    icon: https://avatars.githubusercontent.com/u/56472256?s=280&v=4
+    maintainers:
+    - email: support@vngcloud.vn
+      name: VNG Cloud
+    name: vngcloud-controller-manager
+    type: application
+    urls:
+    - https://github.com/anngdinh/helm-charts/releases/download/vngcloud-controller-manager-0.2.1/vngcloud-controller-manager-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: v0.1.0
     created: "2024-04-08T07:27:56.098934332Z"
     description: VngCloud Controller Manager plugin for Kubernetes
     digest: cf6d89622b3ce991b0cd540b019056adde88584afa9c605672fb60fa34774cd4
@@ -162,4 +189,4 @@ entries:
     urls:
     - https://github.com/anngdinh/helm-charts/releases/download/vngcloud-ingress-controller-0.1.4/vngcloud-ingress-controller-0.1.4.tgz
     version: 0.1.4
-generated: "2024-06-03T09:35:43.338366326Z"
+generated: "2024-06-03T09:40:18.666380804Z"
