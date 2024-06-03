@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: goapp-debug-deployment
+  labels:
+    app: goapp-debug
+    key: {{ .Values.key }}
 spec:
   selector:
     matchLabels:
