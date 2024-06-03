@@ -30,6 +30,14 @@ jobs:
         uses: helm/chart-releaser-action@v1.6.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      
+      - name: save helm chart to local registry
+        env:
+          CHANGED_CHARTS: ${{ steps.run_tests.outputs.changed_charts }}
+          CHART_VERSION: ${{ steps.run_tests.outputs.chart_version }}
+        run: |
+          echo "$CHANGED_CHARTS"
+          echo "$CHART_VERSION"
 
   push:
     runs-on: ubuntu-latest
