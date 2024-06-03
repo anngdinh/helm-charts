@@ -6,11 +6,8 @@ on:
       - main
 
 jobs:
-  job1:
+  release:
     runs-on: ubuntu-latest
-    outputs:
-      changed_charts: ${{ steps.run_tests.outputs.changed_charts }}
-      chart_version: ${{ steps.run_tests.outputs.chart_version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,36 +19,6 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Install Helm
-        uses: azure/setup-helm@v4.1.0
-
-      - name: Run chart-releaser
-        id: run_tests
-        uses: helm/chart-releaser-action@v1.6.0
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      
-      - name: save helm chart to local registry
-        env:
-          CHANGED_CHARTS: ${{ steps.run_tests.outputs.changed_charts }}
-          CHART_VERSION: ${{ steps.run_tests.outputs.chart_version }}
-        run: |
-          echo "$CHANGED_CHARTS"
-          echo "$CHART_VERSION"
-
-  push:
-    runs-on: ubuntu-latest
-    needs: job1
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - name: Install Helm
         uses: azure/setup-helm@v4.1.0
 
@@ -60,10 +27,16 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io/${{ github.repository_owner }} --username ${{ github.repository_owner }} --password-stdin
           echo ${{ secrets.VCR_PASSWORD }} | helm registry login vcr.vngcloud.vn --username ${{ secrets.VCR_USER }} --password-stdin
 
-      - name: save helm chart to local registry
+      - name: Run chart-releaser
+        id: run_tests
+        uses: helm/chart-releaser-action@v1.6.0
         env:
-          CHANGED_CHARTS: ${{needs.job1.outputs.changed_charts}}
-          CHART_VERSION: ${{needs.job1.outputs.chart_version}}
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Push charts
+        env:
+          CHANGED_CHARTS: ${{ steps.run_tests.outputs.changed_charts }}
+          CHART_VERSION: ${{ steps.run_tests.outputs.chart_version }}
         run: |
           echo "$CHANGED_CHARTS"
           echo "$CHART_VERSION"
