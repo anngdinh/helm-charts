@@ -61,5 +61,6 @@ jobs:
           echo "$CHANGED_CHARTS"
           echo "$CHART_VERSION"
           echo ${{ github.workspace }}
+          ls -al ${{ github.workspace }}
           cd ${{ github.workspace }} && ./push_tgz.sh oci://ghcr.io/${{ github.repository_owner }}/helm-charts $CHANGED_CHARTS
           cd ${{ github.workspace }} && ./push_tgz.sh oci://${{ secrets.VCR_REPO }}/helm-charts $CHANGED_CHARTS

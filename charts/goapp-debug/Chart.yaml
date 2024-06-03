@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: v2.0.0
-version: 2.0.13
+version: 2.0.14
 name: goapp-debug
 description: Go App Debug
 type: application
