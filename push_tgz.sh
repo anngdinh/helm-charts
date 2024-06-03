@@ -3,6 +3,7 @@
 echo "Repo URL: $1";
 echo "Change charts: $2";
 
+current_dir=$(pwd)
 folders=$2
 IFS=',' read -ra folder_array <<< "$folders"
 for folder in "${folder_array[@]}"; do
@@ -16,6 +17,8 @@ for folder in "${folder_array[@]}"; do
       helm push "$file" "$1"
     fi
   done
+  rm -rf ./*.tgz
+  cd $current_dir
 done
 
 echo "Push process completed."
