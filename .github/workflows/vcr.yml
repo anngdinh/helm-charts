@@ -40,6 +40,8 @@ jobs:
         uses: helm/chart-releaser-action@v1.6.0
         with:
           skip_upload: true
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
   push:
     runs-on: ubuntu-latest
