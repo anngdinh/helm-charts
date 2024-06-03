@@ -3,6 +3,19 @@ entries:
   goapp-debug:
   - apiVersion: v2
     appVersion: v2.0.0
+    created: "2024-06-03T08:22:41.394018503Z"
+    description: Go App Debug
+    digest: 10d41f68a6835c81352fd13badeb32a68b56d2a274aba5d9f6851159139c989a
+    maintainers:
+    - email: support@vngcloud.vn
+      name: annd2
+    name: goapp-debug
+    type: application
+    urls:
+    - https://github.com/anngdinh/helm-charts/releases/download/goapp-debug-2.0.6/goapp-debug-2.0.6.tgz
+    version: 2.0.6
+  - apiVersion: v2
+    appVersion: v2.0.0
     created: "2024-04-11T07:34:40.177037687Z"
     description: Go App Debug
     digest: 8b4143935c40df04aa644a56be6c4dece05410b5bd0c3cb1079efe472e7a83a3
@@ -97,4 +110,4 @@ entries:
     urls:
     - https://github.com/anngdinh/helm-charts/releases/download/vngcloud-ingress-controller-0.1.4/vngcloud-ingress-controller-0.1.4.tgz
     version: 0.1.4
-generated: "2024-04-11T07:34:40.177117657Z"
+generated: "2024-06-03T08:22:41.39404889Z"
