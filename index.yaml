@@ -224,6 +224,20 @@ entries:
     version: 2.0.2
   vngcloud-controller-manager:
   - apiVersion: v2
+    appVersion: v0.2.5
+    created: "2024-07-16T08:38:12.204487819Z"
+    description: VngCloud Controller Manager plugin for Kubernetes
+    digest: 4f244bcdcdd2205a76097cc4f2e8fc4622c1bdf86b4a8de0c1c197121ba289a4
+    icon: https://avatars.githubusercontent.com/u/56472256?s=280&v=4
+    maintainers:
+    - email: support@vngcloud.vn
+      name: VNG Cloud
+    name: vngcloud-controller-manager
+    type: application
+    urls:
+    - https://github.com/anngdinh/helm-charts/releases/download/vngcloud-controller-manager-0.2.9/vngcloud-controller-manager-0.2.9.tgz
+    version: 0.2.9
+  - apiVersion: v2
     appVersion: v0.1.0
     created: "2024-06-03T10:10:44.869356587Z"
     description: VngCloud Controller Manager plugin for Kubernetes
@@ -322,4 +336,4 @@ entries:
     urls:
     - https://github.com/anngdinh/helm-charts/releases/download/vngcloud-ingress-controller-0.1.4/vngcloud-ingress-controller-0.1.4.tgz
     version: 0.1.4
-generated: "2024-06-11T03:14:52.702506281Z"
+generated: "2024-07-16T08:38:12.204554513Z"
