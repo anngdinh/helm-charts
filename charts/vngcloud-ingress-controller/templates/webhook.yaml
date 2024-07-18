@@ -21,7 +21,7 @@ webhooks:
       name: {{ .Values.webhook.name }}
       namespace: {{ .Release.Namespace }}
       path: /validate
-      port: 31443
+      port: {{ .Values.webhook.portHttps }}
   failurePolicy: Fail
   matchPolicy: Equivalent
   name: {{ .Values.webhook.name }}.vngcloud.vn
