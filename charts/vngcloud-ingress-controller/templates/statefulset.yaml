@@ -39,6 +39,7 @@ spec:
           - /bin/vngcloud-ic-webhook
           - --create-secret=true
           - --common-name={{ .Values.webhook.name }}
+          - --port-https={{ .Values.webhook.portHttps }}
           - --namespace={{ .Release.Namespace }}
           env:
           - name: TLS

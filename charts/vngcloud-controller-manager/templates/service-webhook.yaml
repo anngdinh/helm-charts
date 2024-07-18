@@ -12,8 +12,8 @@ metadata:
     {{- end }}
 spec:
   ports:
-  - name: http
-    port: 8443
+  - name: https
+    port: {{ .Values.webhook.portHttps }}
     protocol: TCP
   selector:
     {{- include "vconCcm.controllermanager.matchLabels" . | nindent 4 }}
