@@ -22,24 +22,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4.1.0
 
-      - name: login to acr using helm
-        run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io/${{ github.repository_owner }} --username ${{ github.repository_owner }} --password-stdin
-          echo ${{ secrets.VCR_PASSWORD }} | helm registry login vcr.vngcloud.vn --username ${{ secrets.VCR_USER }} --password-stdin
-
       - name: Run chart-releaser
-        id: run_tests
         uses: helm/chart-releaser-action@v1.6.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Push charts
-        env:
-          CHANGED_CHARTS: ${{ steps.run_tests.outputs.changed_charts }}
-          CHART_VERSION: ${{ steps.run_tests.outputs.chart_version }}
-        run: |
-          echo "$CHANGED_CHARTS"
-          echo "$CHART_VERSION"
-          echo ${{ github.workspace }}
-          cd ${{ github.workspace }} && ./push_tgz.sh oci://ghcr.io/${{ github.repository_owner }}/helm-charts $CHANGED_CHARTS
-          cd ${{ github.workspace }} && ./push_tgz.sh oci://${{ secrets.VCR_REPO }}/helm-charts $CHANGED_CHARTS
