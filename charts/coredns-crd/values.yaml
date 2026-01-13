@@ -116,7 +116,7 @@ servers:
   # hostPort: 53
   plugins:
   - name: k8s_crd
-    parameters: vks.vngcloud.vn
+    parameters: .
     configBlock: |-
       ttl 30
   - name: errors
